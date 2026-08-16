@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+
+  --color-crema: #fdf8f0;
+  --color-tinta: #2b2119;
+  --color-tenue: #7b6a58;
+  --color-borde: #ece0cf;
+  --color-marca: #b45309;
+  --color-marca-suave: #fef3c7;
+  --color-deuda: #b91c1c;
+  --color-pagado: #15803d;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-crema);
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+}
+
+/* Los campos del formulario se usan mucho desde el celular: nada de letra chica
+   (en iOS, menos de 16px hace que la pagina haga zoom sola al escribir). */
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  font-size: 16px;
+}
+
+@layer components {
+  .campo {
+    @apply w-full rounded-xl border border-borde bg-white px-4 py-3 text-tinta
+           outline-none placeholder:text-tenue/60
+           focus:border-marca focus:ring-2 focus:ring-marca/20;
+  }
+
+  .etiqueta {
+    @apply mb-1.5 block text-sm font-semibold text-tenue;
+  }
+
+  .boton {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-marca px-5 py-3
+           font-semibold text-white transition
+           hover:bg-marca/90 active:scale-[0.98]
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .boton-suave {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-borde
+           bg-white px-4 py-2.5 font-semibold text-tinta transition
+           hover:bg-marca-suave active:scale-[0.98]
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .tarjeta {
+    @apply rounded-2xl border border-borde bg-white p-5 shadow-sm;
+  }
+}
