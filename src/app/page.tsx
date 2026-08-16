@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { buscarPorCarnet, estadoDeCuenta } from "@/lib/consultas";
 import { bs, carnetLegible, fechaHora, normalizarCarnet } from "@/lib/format";
@@ -19,11 +20,17 @@ export default async function Inicio({
   return (
     <main className="mx-auto flex min-h-dvh w-full max-w-xl flex-col px-4 py-8">
       <header className="text-center">
-        <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-marca-suave text-3xl">
-          🏪
-        </div>
-        <h1 className="text-2xl font-bold tracking-tight">Tienda Doña Goyita</h1>
-        <p className="mt-1 text-tenue">Consulta cuánto debes con tu número de carnet</p>
+        <Image
+          src="/logo.png"
+          alt="Tienda Doña Goyita"
+          width={277}
+          height={358}
+          priority
+          className="mx-auto w-36 rounded-2xl border border-borde shadow-sm"
+        />
+        {/* El nombre ya está en el logo; lo repetimos solo para lectores de pantalla. */}
+        <h1 className="sr-only">Tienda Doña Goyita</h1>
+        <p className="mt-4 text-tenue">Consulta cuánto debes con tu número de carnet</p>
       </header>
 
       <form action="/" method="get" className="mt-7">

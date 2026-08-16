@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { haySesion } from "@/lib/auth";
@@ -12,11 +13,16 @@ export default async function Login() {
     <main className="mx-auto flex min-h-dvh w-full max-w-sm flex-col justify-center px-4 py-10">
       <div className="tarjeta">
         <div className="mb-6 text-center">
-          <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-marca-suave text-3xl">
-            🔑
-          </div>
+          <Image
+            src="/goyita.png"
+            alt=""
+            width={256}
+            height={256}
+            priority
+            className="mx-auto mb-3 h-20 w-20 rounded-full object-cover ring-2 ring-marca-suave"
+          />
           <h1 className="text-xl font-bold">Panel de la casera</h1>
-          <p className="mt-1 text-sm text-tenue">Doña Goyita</p>
+          <p className="mt-1 text-sm text-tenue">Tienda Doña Goyita</p>
         </div>
 
         <FormularioAcceso />

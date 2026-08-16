@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { haySesion } from "@/lib/auth";
@@ -13,7 +14,13 @@ export default async function PanelLayout({ children }: { children: React.ReactN
       <header className="sticky top-0 z-10 border-b border-borde bg-crema/90 backdrop-blur">
         <div className="mx-auto flex w-full max-w-3xl items-center gap-3 px-4 py-3">
           <Link href="/admin" className="flex items-center gap-2 font-bold">
-            <span className="text-xl">🏪</span>
+            <Image
+              src="/goyita.png"
+              alt=""
+              width={256}
+              height={256}
+              className="h-9 w-9 rounded-full object-cover ring-1 ring-borde"
+            />
             <span>Doña Goyita</span>
           </Link>
 
