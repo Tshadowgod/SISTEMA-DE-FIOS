@@ -89,27 +89,27 @@ export default function FormularioPago({
       </div>
 
       <div>
-        <label htmlFor="fecha-pago" className="etiqueta">
-          Día y hora del pago
-        </label>
-        <div className="flex gap-2">
-          <input
-            id="fecha-pago"
-            name="fecha"
-            type="datetime-local"
-            value={fecha}
-            onChange={(e) => setFecha(e.target.value)}
-            required
-            className="campo"
-          />
+        <div className="mb-1.5 flex items-baseline justify-between gap-2">
+          <label htmlFor="fecha-pago" className="etiqueta mb-0">
+            Día y hora del pago
+          </label>
           <button
             type="button"
             onClick={() => setFecha(aInputDateTime(new Date()))}
-            className="boton-suave shrink-0"
+            className="shrink-0 text-sm font-semibold text-marca underline underline-offset-2"
           >
-            Ahora
+            Poner ahora
           </button>
         </div>
+        <input
+          id="fecha-pago"
+          name="fecha"
+          type="datetime-local"
+          value={fecha}
+          onChange={(e) => setFecha(e.target.value)}
+          required
+          className="campo"
+        />
       </div>
 
       {estado.error && <Aviso>{estado.error}</Aviso>}

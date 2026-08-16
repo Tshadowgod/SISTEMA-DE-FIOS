@@ -74,27 +74,29 @@ export default function FormularioFiado({
       </div>
 
       <div>
-        <label htmlFor="fecha" className="etiqueta">
-          Día y hora del fiado
-        </label>
-        <div className="flex gap-2">
-          <input
-            id="fecha"
-            name="fecha"
-            type="datetime-local"
-            value={fecha}
-            onChange={(e) => setFecha(e.target.value)}
-            required
-            className="campo"
-          />
+        {/* El atajo va junto a la etiqueta y no al lado del campo: así el campo
+            usa todo el ancho y en celulares angostos no se corta el "a. m./p. m." */}
+        <div className="mb-1.5 flex items-baseline justify-between gap-2">
+          <label htmlFor="fecha" className="etiqueta mb-0">
+            Día y hora del fiado
+          </label>
           <button
             type="button"
             onClick={() => setFecha(aInputDateTime(new Date()))}
-            className="boton-suave shrink-0"
+            className="shrink-0 text-sm font-semibold text-marca underline underline-offset-2"
           >
-            Ahora
+            Poner ahora
           </button>
         </div>
+        <input
+          id="fecha"
+          name="fecha"
+          type="datetime-local"
+          value={fecha}
+          onChange={(e) => setFecha(e.target.value)}
+          required
+          className="campo"
+        />
         <p className="mt-1 text-xs text-tenue">
           Se pone la hora actual sola. Cámbiala si estás anotando algo de antes.
         </p>

@@ -34,8 +34,11 @@ button {
 }
 
 @layer components {
+  /* `min-w-0` es necesario: sin él, un campo dentro de una fila flex (por ejemplo
+     el de fecha y hora junto al botón "Ahora") se niega a achicarse por debajo de
+     su ancho natural y empuja al botón fuera de la pantalla en celulares angostos. */
   .campo {
-    @apply w-full rounded-xl border border-borde bg-white px-4 py-3 text-tinta
+    @apply w-full min-w-0 rounded-xl border border-borde bg-white px-4 py-3 text-tinta
            outline-none placeholder:text-tenue/60
            focus:border-marca focus:ring-2 focus:ring-marca/20;
   }
